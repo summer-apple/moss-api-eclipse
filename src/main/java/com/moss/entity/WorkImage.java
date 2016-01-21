@@ -1,5 +1,5 @@
 package com.moss.entity;
-// Generated 2016-1-21 14:36:22 by Hibernate Tools 4.3.1.Final
+// Generated 2016-1-21 23:21:14 by Hibernate Tools 4.3.1.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

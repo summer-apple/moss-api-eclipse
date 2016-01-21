@@ -5,10 +5,12 @@ import java.security.MessageDigest;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Check;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.moss.action.MemberAction;
 import com.moss.dao.BaseDao;
 import com.moss.entity.Member;
 
@@ -17,6 +19,7 @@ public class UtilService {
 
 	@Autowired
 	private BaseDao<Member> dao;
+	Logger logger = Logger.getLogger(UtilService.class);
 	
 	
 	
@@ -41,6 +44,19 @@ public class UtilService {
 	public String getPasswordMD5(String username,String password) {
 		String salt = "I Like Moss!";
 		String passStr = username+password+salt;
+		System.out.println(getMD5(passStr));
+		return getMD5(passStr);
+	}
+	
+	/**
+	 * 生成token
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	public String getToken(String username,String password,String time) {
+		String salt = "I Like Moss Very Much!";
+		String passStr = username+password+salt+time;
 		return getMD5(passStr);
 	}
 	
